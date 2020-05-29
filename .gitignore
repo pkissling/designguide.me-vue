@@ -1,0 +1,8 @@
+# NPM
+node_modules
+dist
+.env.local
+.env.*.local
+html/npm-debug.log*
+html/yarn-debug.log*
+html/yarn-error.log*

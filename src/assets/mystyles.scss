@@ -1,0 +1,24 @@
+@charset "utf-8";
+
+@import url(https://fonts.googleapis.com/css2?family=Raleway:wght@100&display=swap);
+
+$primary: #676767;
+$link: #d4d3d3;
+
+// Font
+#app {
+  font-family: 'Raleway', sans-serif;
+  font-weight: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.content {
+  margin-top: 1rem !important;
+  margin-bottom: 1rem !important;
+  padding-left: 20% !important;
+  padding-right: 20% !important;
+}
+
+// Import only what you need from Bulma
+@import "../node_modules/bulma/bulma.sass"
