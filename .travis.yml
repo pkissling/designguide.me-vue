@@ -1,0 +1,21 @@
+---
+language: node_js
+node_js:
+  - 14
+
+notifications:
+  email:
+    on_success: change
+    on_failure: always
+
+before_install:
+  # install aws cli
+  - wget https://s3.amazonaws.com/aws-cli/awscli-bundle.zip
+  - unzip awscli-bundle.zip -d download
+  - ./download/awscli-bundle/install -b ~/bin/aws
+  - rm -r download
+  - rm awscli-bundle.zip
+
+script:
+  - npm run build
+  - aws s3 sync ./dist s3://designguide.me
