@@ -1,23 +1,53 @@
 @charset "utf-8";
 
-@import url(https://fonts.googleapis.com/css2?family=Raleway:wght@100&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Anton&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap);
+@import url(https://db.onlinewebfonts.com/c/6daaeacf369f5c15f3308f379ab05b77?family=Futura+LT);
 
-$primary: #676767;
-$link: #d4d3d3;
+$primary: #293133;
+$link: black;
+$warning: red;
 
 // Font
+.brand {
+  font-family: 'Anton', sans-serif;
+}
+
 #app {
-  font-family: 'Raleway', sans-serif;
-  font-weight: normal;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Futura LT', sans-serif;
 }
 
 .content {
-  margin-top: 1rem !important;
-  margin-bottom: 1rem !important;
-  padding-left: 20% !important;
-  padding-right: 20% !important;
+  margin-top: 5rem !important;
+  margin-bottom: 5rem !important;
+  padding-left: 5% !important;
+  padding-right: 5% !important;
+  max-width: 60rem;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 11pt;
+}
+
+.hero-body {
+  font-family: 'Amatic SC', cursive;
+  font-size: 52pt;
+  color: black;
+  margin-bottom: 2.5rem;
+}
+
+
+.title {
+  font-size: 18pt !important;
+}
+
+.hero-image {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.hero {
+  margin-right: 1rem;
 }
 
 // Import only what you need from Bulma

@@ -1,41 +1,39 @@
 <template>
   <div id="app">
-
     <navbar></navbar>
 
     <hero></hero>
-    <one></one>
-    <two></two>
-    <three></three>
+    <intro></intro>
+    <pckg></pckg>
     <contact></contact>
+    <about></about>
 
-    <foot></foot>
-
+    <Foot></Foot>
   </div>
 </template>
 
 <script>
-  import navbar from './components/navbar.vue'
-  import hero from './components/hero.vue'
-  import one from './components/one.vue'
-  import two from './components/two.vue'
-  import three from './components/three.vue'
-  import contact from './components/contact.vue'
-  import foot from './components/footer.vue'
+import Navbar from "./components/Navbar.vue";
+import Hero from "./components/Hero.vue";
+import Intro from "./components/Intro.vue";
+import Pckg from "./components/Package.vue";
+import Contact from "./components/Contact.vue";
+import About from "./components/About.vue";
+import Foot from "./components/Footer.vue";
 
-  export default {
-    components: {
-      navbar,
-      hero,
-      one,
-      two,
-      three,
-      contact,
-      foot
-    }
+export default {
+  components: {
+    Navbar,
+    Hero,
+    Intro,
+    Pckg,
+    Contact,
+    About,
+    Foot
   }
+};
 </script>
 
 <style lang="scss">
-  @import "./assets/mystyles.scss"
+@import "./assets/mystyles.scss";
 </style>
