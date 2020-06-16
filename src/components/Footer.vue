@@ -1,13 +1,13 @@
 <template>
   <div id="footer">
-    <div class="hero hero-image has-text-centered">
-      <div class="hero-body"></div>
-      <div class="hero-foot">
-        <a class="nav-item is-uppercase" @click.prevent="toggleImprint()">Impressum</a>
+    <div class="box has-background-grey-lighter has-text-centered">
+      <div class="is-uppercase">
+        <a class="nav-item" @click.prevent="toggleImprint()">Impressum</a>
         |
-        <a class="nav-item is-uppercase" @click.prevent="togglePrivacyStatement()">Datenschutzerklärung</a>
+        <a class="nav-item" @click.prevent="togglePrivacyStatement()">Datenschutzerklärung</a>
+        </div>
         <p>Copyright 2020 - Sandra Zechmeister</p>
-      </div>
+         Schriftarten von <a href="http://www.onlinewebfonts.com" target="_blank">oNline Web Fonts</a>
     </div>
 
     <PrivacyStatement :show="this.showPrivacyStatement" @close="togglePrivacyStatement()"></PrivacyStatement>
@@ -45,12 +45,8 @@ export default {
 };
 </script>
 <style scoped>
-.hero-image {
-  background-image: url("../assets/img/footer.jpg");
-  background-position: 0% 80%;
-}
 
-.hero-foot {
-  margin-bottom: 1rem;
+.box {
+  margin: 0 !important
 }
 </style>

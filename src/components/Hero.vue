@@ -8,7 +8,8 @@
 
 <style scoped>
 .hero-image {
-  padding-bottom: 420px;
+  /* adjust this value to increase size of image */
+  padding-bottom: 550px;
   background-image: url("../assets/img/hero.png");
   background-position: right bottom;
   background-repeat: no-repeat;

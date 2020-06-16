@@ -1,14 +1,20 @@
 <template>
   <div id="app">
+    <!-- nav -->
     <navbar></navbar>
 
+    <!-- content -->
     <hero></hero>
     <intro></intro>
     <pckg></pckg>
     <contact></contact>
     <about></about>
 
-    <Foot></Foot>
+    <!-- footer -->
+    <foot></foot>
+
+    <!-- popup -->
+    <cookieConsent></cookieConsent>
   </div>
 </template>
 
@@ -20,6 +26,7 @@ import Pckg from "./components/Package.vue";
 import Contact from "./components/Contact.vue";
 import About from "./components/About.vue";
 import Foot from "./components/Footer.vue";
+import CookieConsent from "./modals/CookieConsent.vue";
 
 export default {
   components: {
@@ -29,7 +36,8 @@ export default {
     Pckg,
     Contact,
     About,
-    Foot
+    Foot,
+    CookieConsent
   }
 };
 </script>

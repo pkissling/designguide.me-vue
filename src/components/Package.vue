@@ -8,18 +8,13 @@
       <h1 class="title">Leistungsumfang</h1>
 
       <p>Mit dem Designguide Basic Package erhältst du ein professionelles Interior Konzept - zum vorher vereinbarten Festpreis. Diesen legen wir auf Basis des Projektumfangs fest.</p>
-      <p>Dabei gilt: Alles ist möglich! Das Designkonzept kann für einen einzelnen Raum erstellt werden, dem du einen neuen Look verleihen möchtest. Das Designkonzept kann aber auch für eine gesamte Gastronomie, mehrgeschossige Büroflächen, den neuen VW-Bully für die Skandinavienreise oder das Ferienhaus in Italien erstellt werden.</p>
+      <p>Dabei gilt: Alles ist möglich! Das Designkonzept kann für einen einzelnen Raum erstellt werden, dem du einen neuen Look verleihen möchtest. Das Designkonzept kann aber auch für eine gesamte Gastronomie, mehrgeschossige Büroflächen, den neuen VW-Bulli für die Skandinavienreise oder das Ferienhaus in Italien erstellt werden.</p>
       <p>Die Idee des Designguide Basic Packages ist es, auf Grundlage des gemeinsamen Briefings, dir Ideen & Inspirationen an die Hand zu geben, sodass du dein Projekt eigenständig umsetzen kannst.</p>
 
       <p></p>
 
       <div class="box">
         <article class="media">
-          <div class="media-left">
-            <div class="sign">
-              <div class="horiztonal-line"></div>
-            </div>
-          </div>
           <div class="media-content">
             <div class="has-text-left">
               <strong class="is-uppercase brand is-size-5">Basic package</strong>
@@ -27,7 +22,7 @@
 
               <ul class="dashed">
                 <li>
-                  <span>Kick-Off-Call mit gemeinsamen Briefing</span>
+                  <span>Kick-Off-Call mit Briefing</span>
                 </li>
                 <li>
                   <span>Look & Feel Moodboard</span>
@@ -49,32 +44,28 @@
         </article>
       </div>
 
-      <p>Falls gewünscht, können zum Basic Package auch noch weitere Services zusätzlich abgerufen werden, die dich bei der Umsetzung des Projektes unterstützen.</p>
+      <div>
+      Falls gewünscht, können zum Basic Package auch noch weitere Services abgerufen werden, die dich bei der Umsetzung des Projektes unterstützen.
+      </div>
+
       <div class="box">
         <article class="media">
-          <div class="media-left">
-            <div class="sign">
-              <div class="horiztonal-line"></div>
-              <div class="vertical-line"></div>
-            </div>
-          </div>
           <div class="media-content">
             <div class="has-text-left">
               <strong class="is-uppercase brand is-size-5">ADD - ON`S</strong>
               <div class="divider"></div>
-
               <ul class="dashed">
                 <li>
-                  <span>Möbelzeichnungen für Individualmöbel durch Schreiner</span>
+                  <span>Möbelzeichnungen für Individualmöbel</span>
                 </li>
                 <li>
-                  <span>Einkaufsliste für Möbel & Leuchten mit Herstellerangaben</span>
+                  <span>Einkaufsliste für Möbel & Leuchten</span>
                 </li>
                 <li>
                   <span>Fotorealistische 3D - Visualisierung</span>
                 </li>
                 <li>
-                  <span>Kostenschätzung der anfallenden Ausbau- und Möbelkosten</span>
+                  <span>Kostenschätzung für Ausbau und Möbel</span>
                 </li>
                 <li>
                   <span>Grafikdesign & Logoentwicklung</span>
@@ -94,9 +85,9 @@
 </template>
 
 <style scoped>
-.media-left {
-  margin-top: 0rem;
-  margin-left: 1rem;
+.box {
+  margin-top: 2rem;
+  margin-bottom: 2rem !important;
 }
 
 .divider {
@@ -112,7 +103,7 @@
 
 .sign div {
   position: absolute;
-  background: #293133;
+  background: #1c2122;
 }
 
 .vertical-line {
@@ -129,6 +120,10 @@
 
 .hero-image {
   background-image: url("../assets/img/package.jpg");
+  background-position: 0% 75%;
+    background-size: 100% auto;
+
+
 }
 
 ul > li {
@@ -151,4 +146,6 @@ li span {
   position: relative;
   left: 2.5rem;
 }
+
+
 </style>

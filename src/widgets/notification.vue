@@ -3,7 +3,7 @@
             <div v-show="this.show" :class="this.type" class="notification">
                 <button class="delete" @click.prevent="dismissNotification()"/>
                 <p class="title is-4">Oops!</p>
-                An error occured. Please try again later!
+                Ein Fehler ist aufgetreten. Bitte versuche es später erneut.
             </div>
         </transition>
 </template>
@@ -30,6 +30,7 @@ export default {
         z-index: 1 !important;
         right: 0% !important;
         margin-left: 1rem !important;
+        margin-right: 1rem !important;
         bottom: 1rem !important;
     }
 

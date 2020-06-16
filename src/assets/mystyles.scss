@@ -19,6 +19,7 @@ $warning: red;
 // Font
 .brand {
   font-family: 'Anton', sans-serif;
+  color: black
 }
 
 #app {
@@ -38,11 +39,10 @@ $warning: red;
 
 .hero-body {
   font-family: 'Amatic SC', cursive;
-  font-size: 52pt;
+  font-size: 42pt;
   color: black;
   margin-bottom: 2.5rem;
 }
-
 
 .title {
   font-size: 18pt !important;
@@ -54,9 +54,7 @@ $warning: red;
   background-size: cover;
 }
 
-.hero {
-  margin-right: 1rem;
-}
+
 
 // Import only what you need from Bulma
 @import "../node_modules/bulma/bulma.sass"

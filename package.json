@@ -11,6 +11,8 @@
     "axios": "0.19.2",
     "core-js": "^3.6.4",
     "vue": "^2.6.11",
+    "vue-cookies": "^1.7.0",
+    "vue-gtag": "^1.6.3",
     "vue-scrollto": "^2.18.1"
   },
   "devDependencies": {
