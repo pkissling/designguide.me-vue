@@ -1,7 +1,13 @@
 {
-  "name": "designguide.me",
+  "name": "designguide.me-vue",
   "version": "0.1.0",
   "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pkissling/designguide.me-vue.git"
+},
+"author": "pkissling",
+"homepage": "https://github.com/pkissling/designguide.me-vue#readme",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
