@@ -23,7 +23,7 @@
             <div class="control" id="name">
               <input
                 name="name"
-                v-model="form.name"
+                v-model.trim="form.name"
                 class="input"
                 @change="validate.name = true"
                 :class="{ 'is-warning': isFormNameInvalid }"
@@ -137,7 +137,7 @@
           <div class="field">
             <label
               class="label is-size-7 is-uppercase"
-            >Was möchten du mir vorab zu deinem Projekt mitteilen?</label>
+            >Was möchtest du mir vorab zu deinem Projekt mitteilen?</label>
             <div class="control">
               <textarea v-model.trim="form.other" rows="5" class="textarea" autocomplete="true"></textarea>
             </div>
@@ -235,7 +235,6 @@ export default {
           this.form.email,
           this.form.phone,
           this.form.purpose,
-          this.form.attachments,
           this.form.other
         )
         .then(() => (this.isSuccess = true))
