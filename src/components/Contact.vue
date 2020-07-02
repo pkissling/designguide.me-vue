@@ -18,7 +18,6 @@
       <form>
         <div id="form" class="form box">
           <div class="field">
-
             <label for="name" class="label is-size-7 is-uppercase">Name*</label>
             <div class="control" id="name">
               <input
@@ -28,7 +27,8 @@
                 @change="validate.name = true"
                 :class="{ 'is-warning': isFormNameInvalid }"
                 type="text"
-                required autocomplete="name"
+                required
+                autocomplete="name"
               />
             </div>
             <p
@@ -44,7 +44,8 @@
                 name="email"
                 class="input"
                 type="email"
-                required autocomplete="email"
+                required
+                autocomplete="email"
                 v-model.trim="form.email"
                 @change="validate.email = true"
                 :class="{ 'is-warning': isFormEmailInvalid }"
@@ -93,16 +94,10 @@
             </div>
           </div>
 
-
           <div v-if="this.showPurposeDetailField" class="field">
             <label for="tel" class="label is-size-7 is-uppercase">Platzhalter</label>
             <div class="control">
-              <input
-                class="input"
-                type="text"
-                autocomplete="off"
-                v-model.trim="form.purposeDetail"
-              />
+              <input class="input" type="text" autocomplete="off" v-model.trim="form.purposeDetail" />
             </div>
           </div>
 
@@ -146,12 +141,23 @@
           <div class="field">
             <div class="control">
               <div class="has-text-centered">
-                <a id="sendMessage" class="button is-primary" @click.prevent="sendMessage()">
+                <button
+                  id="sendMessage"
+                  class="button"
+                  :disabled="this.isSuccess || this.isLoading"
+                  :class="submitButtonClass"
+                  @click.prevent="sendMessage()"
+                >
                   <span class="icon is-small">
-                    <i class="far fa-envelope" />
+                    <span v-if="this.isSuccess">
+                      <i class="fas fa-check"/>
+                    </span>
+                    <span v-else>
+                      <i class="fas fa-envelope"/>
+                    </span>
                   </span>
-                  <strong class="is-uppercase">Erzähl mir von Deinem Projekt!</strong>
-                </a>
+                  <p class="is-uppercase">Erzähl mir von Deinem Projekt!</p>
+                </button>
               </div>
             </div>
           </div>
@@ -237,12 +243,12 @@ export default {
           this.form.purpose,
           this.form.other
         )
-        .then(() => (this.isSuccess = true))
+        .then(() => this.isSuccess = true)
         .catch(err => {
           this.error = err;
           this.showNotification = true;
         })
-        .finally(() => (this.isLoading = false));
+        .finally(() => this.isLoading = false);
     },
 
     dismissNotification() {
@@ -304,7 +310,7 @@ export default {
 
     showPurposeDetailField() {
       // TODO
-      return false
+      return false;
       // return this.form.purpose == 'Kommerziell - Sonstiges' || this.form.purpose == 'Privat - Sonstiges'
     }
   }
