@@ -17,7 +17,7 @@
         <article class="media">
           <div class="media-content">
             <div class="has-text-left">
-              <strong class="is-uppercase brand is-size-5">Basic package</strong>
+              <strong class="is-uppercase is-size-5">Basic package</strong>
               <div class="divider"></div>
 
               <ul class="dashed">
@@ -52,7 +52,7 @@
         <article class="media">
           <div class="media-content">
             <div class="has-text-left">
-              <strong class="is-uppercase brand is-size-5">ADD - ON`S</strong>
+              <strong class="is-uppercase is-size-5">Add - on's</strong>
               <div class="divider"></div>
               <ul class="dashed">
                 <li>
