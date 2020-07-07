@@ -5,9 +5,9 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/pkissling/designguide.me-vue.git"
-},
-"author": "pkissling",
-"homepage": "https://github.com/pkissling/designguide.me-vue#readme",
+  },
+  "author": "pkissling",
+  "homepage": "https://github.com/pkissling/designguide.me-vue#readme",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
@@ -18,7 +18,7 @@
     "core-js": "^3.6.4",
     "vue": "^2.6.11",
     "vue-cookies": "^1.7.0",
-    "vue-gtag": "^1.6.3",
+    "vue-gtag": "^1.7.0",
     "vue-scrollto": "^2.18.1"
   },
   "devDependencies": {
