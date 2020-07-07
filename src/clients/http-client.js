@@ -3,7 +3,7 @@ import { baseUrl } from "../config";
 
 export const httpClient = axios.create({
     baseURL: baseUrl,
-    timeout: 1000,
+    timeout: 5000,
     headers: {'Content-Type': 'application/json',}
 });
 
