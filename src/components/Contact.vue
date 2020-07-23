@@ -164,6 +164,7 @@
                   </span>
                   <p class="is-uppercase">Erzähl mir von Deinem Projekt!</p>
                 </button>
+                <p v-if="isAttachmentsUploading" class="help is-warning">{{ isAttachmentsUploading }}</p>
               </div>
             </div>
           </div>
@@ -208,6 +209,7 @@ export default {
       validate: {
         name: false,
         email: false,
+        attachments: false
       },
 
       isLoading: false,
@@ -227,8 +229,7 @@ export default {
       this.isLoading = true;
       this.error = null;
 
-      backendClient
-        .sendMessage(
+      backendClient.sendMessage(
           this.form.name,
           this.form.email,
           this.form.phone,
@@ -278,8 +279,9 @@ export default {
     doValidate() {
       this.validate.name = true;
       this.validate.email = true;
+      this.validate.attachments = true;
 
-      if (this.isFormNameInvalid || this.isFormEmailInvalid) {
+      if (this.isFormNameInvalid || this.isFormEmailInvalid || this.isAttachmentsUploading) {
         VueScrollTo.scrollTo("#form", { offset: -70 });
         return false;
       }
@@ -323,6 +325,18 @@ export default {
       }
 
       return null;
+    },
+
+    isAttachmentsUploading() {
+      if (!this.validate.attachments) {
+        return null;
+      }
+
+      if (!this.attachmentsUploadQueue || this.attachmentsUploadQueue.length == 0) {
+        return null;
+      }
+
+      return "Bitte warte bis alle Dokumente hochgeladen wurden.";
     },
 
     showPurposeDetailField() {
