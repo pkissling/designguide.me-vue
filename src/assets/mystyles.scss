@@ -57,4 +57,23 @@ $warning: red;
 
 
 // Import only what you need from Bulma
-@import "../node_modules/bulma/bulma.sass"
+// default
+@import "bulma/sass/utilities/_all.sass";
+@import "bulma/sass/base/_all.sass";
+
+// components
+@import "bulma/sass/components/media.sass";
+@import "bulma/sass/components/modal.sass";
+@import "bulma/sass/components/navbar.sass";
+
+// elements
+@import "bulma/sass/elements/_all.sass";
+
+// form
+@import "bulma/sass/form/_all.sass";
+
+// grid
+@import "bulma/sass/grid/_all.sass";
+
+// layout
+@import "bulma/sass/layout/hero.sass";
