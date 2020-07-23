@@ -31,10 +31,7 @@
                 autocomplete="name"
               />
             </div>
-            <p
-              v-if="this.isFormNameInvalid"
-              class="help is-warning"
-            >Dieses Feld muss ausgefüllt werden.</p>
+            <p v-if="isFormNameInvalid" class="help is-warning">{{ isFormNameInvalid }}</p>
           </div>
 
           <div class="field">
@@ -51,7 +48,7 @@
                 :class="{ 'is-warning': isFormEmailInvalid }"
               />
             </div>
-            <p v-if="isFormEmailInvalid" class="help is-warning">Dieses Feld muss ausgefüllt werden.</p>
+            <p v-if="isFormEmailInvalid" class="help is-warning">{{ isFormEmailInvalid }}</p>
           </div>
 
           <div class="field">
@@ -119,7 +116,16 @@
                 Hochladen
               </a>
 
-              <span v-for="attachment in form.attachments" :key="attachment.name" class="tag">
+              <span v-for="attachment in form.attachments" :key="attachment.size" class="tag">
+                {{ attachment.name }}
+                <a
+                  class="delete is-small"
+                  @click.prevent="deleteAttachment(attachment)"
+                ></a>
+              </span>
+
+              <span v-for="attachment in attachmentsUploadQueue" :key="attachment.lastModified" class="tag">
+                <i class="fa fa-spinner fa-pulse fa-fw"></i>
                 {{ attachment.name }}
                 <a
                   class="delete is-small"
@@ -150,10 +156,10 @@
                 >
                   <span class="icon is-small">
                     <span v-if="this.isSuccess">
-                      <i class="fas fa-check"/>
+                      <i class="fas fa-check" />
                     </span>
                     <span v-else>
-                      <i class="fas fa-envelope"/>
+                      <i class="fas fa-envelope" />
                     </span>
                   </span>
                   <p class="is-uppercase">Erzähl mir von Deinem Projekt!</p>
@@ -166,31 +172,22 @@
 
       <notification
         :show="this.showNotification"
-        :body="this.notificationBody"
         :type="this.notificationType"
         @close="dismissNotification()"
       />
-
-      <modal
-        :show="this.modalContent"
-        :title="this.modalContent ? this.modalContent.title : null"
-        :body="this.modalContent ? this.modalContent.body : null"
-        @close="toggleToc()"
-      ></modal>
     </div>
   </div>
 </template>
 
 <script>
 import backendClient from "@/clients/backend";
-import modal from "../widgets/modal.vue";
+import s3Client from "@/clients/s3";
 import notification from "../widgets/notification.vue";
 import VueScrollTo from "vue-scrollto";
 
 export default {
   components: {
-    modal,
-    notification
+    notification,
   },
 
   data: () => {
@@ -202,33 +199,28 @@ export default {
         purpose: null,
         purposeDetail: null,
         attachments: [],
-        other: null
+        other: null,
+        context: new Date().getTime()
       },
+
+      attachmentsUploadQueue: [],
 
       validate: {
         name: false,
-        email: false
-      },
-      warnings: {
-        name: false,
-        email: false
+        email: false,
       },
 
       isLoading: false,
       isSuccess: false,
       showNotification: false,
       error: false,
-      modalContent: null,
-      notificationBody: "test",
-      notificationText: "test",
-      notificationType: "is-danger"
+      notificationType: "is-danger",
     };
   },
 
   methods: {
     sendMessage() {
-      const formIsValid = this.doValidate();
-      if (!formIsValid) {
+      if (!this.doValidate()) {
         return;
       }
 
@@ -241,7 +233,8 @@ export default {
           this.form.email,
           this.form.phone,
           this.form.purpose,
-          this.form.other
+          this.form.other,
+          this.form.attachments
         )
         .then(() => this.isSuccess = true)
         .catch(err => {
@@ -258,20 +251,24 @@ export default {
     uploadAttachments(fileList) {
       if (!fileList.length) return;
 
-      fileList.forEach(uploadedFile => {
-        const isDuplicate = this.form.attachments.some(
-          file => this.hashFile(file) == this.hashFile(uploadedFile)
-        );
-        if (!isDuplicate) {
-          this.form.attachments.push(uploadedFile);
-        }
-      });
+      fileList.forEach(file => {
+        this.attachmentsUploadQueue.push(file)
+
+        const fileType = file.type || "undefined"
+
+        backendClient
+          .createAttachmentUploadUrl(file.name, fileType, this.form.context)
+          .then(response => s3Client.uploadAttachment(response.data, fileType, file))
+          .then(response => {
+            this.attachmentsUploadQueue = this.attachmentsUploadQueue.filter(f => f != file)
+            this.form.attachments.push({ name: file.name, url: response.config.url })
+          })
+      })
     },
 
     deleteAttachment(deleteFile) {
-      this.form.attachments = this.form.attachments.filter(
-        file => file.name != deleteFile.name
-      );
+      this.form.attachments = this.form.attachments.filter(file => file.name != deleteFile.name);
+      this.attachmentsUploadQueue = this.attachmentsUploadQueue.filter(file => file.name != deleteFile.name)
     },
 
     hashFile(file) {
@@ -288,7 +285,7 @@ export default {
       }
 
       return true;
-    }
+    },
   },
 
   computed: {
@@ -301,19 +298,39 @@ export default {
     },
 
     isFormNameInvalid() {
-      return this.validate.name && !this.form.name;
+      if (!this.validate.name) {
+        return null;
+      }
+
+      if (!this.form.name) {
+        return "Dieses Feld muss ausgefüllt werden.";
+      }
+
+      return null;
     },
 
     isFormEmailInvalid() {
-      return this.validate.email && !this.form.email;
+      if (!this.validate.email) {
+        return null;
+      }
+
+      if (!this.form.email) {
+        return "Dieses Feld muss ausgefüllt werden.";
+      }
+
+      if (!/\S+@\S+\.\S+/.test(this.form.email)) {
+        return "Bitte überprüfe die angegebene Mailadresse.";
+      }
+
+      return null;
     },
 
     showPurposeDetailField() {
       // TODO
       return false;
       // return this.form.purpose == 'Kommerziell - Sonstiges' || this.form.purpose == 'Privat - Sonstiges'
-    }
-  }
+    },
+  },
 };
 </script>
 
