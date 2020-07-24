@@ -19,13 +19,9 @@ before_install:
 script:
   # export variables
   - export DOMAIN=designguide.me
-  - export CLOUDFRONT_DISTRIBUTION_ID=$(aws cloudfront list-distributions | jq -r --arg DOMAIN "$DOMAIN" '.DistributionList.Items[] | select (.Aliases.Items[] == $DOMAIN) | .Id')
 
   # build SPA
   - npm run build
 
   # deploy to s3
   - aws s3 sync ./dist s3://"$DOMAIN"
-
-  # invalidate cloudfront
-  #- aws cloudfront create-invalidation --distribution-id "$CLOUDFRONT_DISTRIBUTION_ID" --paths "/*"
