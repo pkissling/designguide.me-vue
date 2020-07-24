@@ -14,6 +14,9 @@
         <br>
         <p>Mobil: 0176 81766793</p>
         <p>Mail: <a href="mailto:sandra@designguide.me">sandra@designguide.me</a></p>
+        <br>
+        <br>
+        <p>Schriftarten von <a href="http://www.onlinewebfonts.com" target="_blank">oNline Web Fonts</a></p>
       </section>
       <footer class="modal-card-foot">
         <button class="button" @click.prevent="close">Close</button>

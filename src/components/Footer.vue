@@ -7,7 +7,6 @@
         <a class="nav-item" @click.prevent="togglePrivacyStatement()">Datenschutzerklärung</a>
         </div>
         <p>Copyright 2020 - Sandra Zechmeister</p>
-         Schriftarten von <a href="http://www.onlinewebfonts.com" target="_blank">oNline Web Fonts</a>
     </div>
 
     <PrivacyStatement :show="this.showPrivacyStatement" @close="togglePrivacyStatement()"></PrivacyStatement>
