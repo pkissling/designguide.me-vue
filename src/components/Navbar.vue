@@ -49,7 +49,7 @@
           <strong>About</strong>
         </a>
 
-        <div class="buttons navbar-item">
+        <div class="navbar-item">
           <a @click="showNav = false" class="button is-primary" v-scroll-to="'#contact'">
             <span class="icon is-small">
               <i class="far fa-envelope" />

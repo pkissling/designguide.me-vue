@@ -44,9 +44,7 @@
         </article>
       </div>
 
-      <div>
-      Falls gewünscht, können zum Basic Package auch noch weitere Services abgerufen werden, die dich bei der Umsetzung des Projektes unterstützen.
-      </div>
+      <div>Falls gewünscht, können zum Basic Package auch noch weitere Services abgerufen werden, die dich bei der Umsetzung des Projektes unterstützen.</div>
 
       <div class="box">
         <article class="media">
@@ -85,67 +83,41 @@
 </template>
 
 <style scoped>
-.box {
-  margin-top: 2rem;
-  margin-bottom: 2rem !important;
-}
+  .box {
+    margin-top: 2rem;
+    margin-bottom: 2rem !important;
+  }
 
-.divider {
-  width: 100%;
-  border-bottom: 1.5px solid;
-}
+  .divider {
+    width: 100%;
+    border-bottom: 1.5px solid;
+  }
 
-.sign {
-  position: relative;
-  width: 5rem;
-  height: 5rem;
-}
-
-.sign div {
-  position: absolute;
-  background: #1c2122;
-}
-
-.vertical-line {
-  height: 100%;
-  left: 33%;
-  width: 33%;
-}
-
-.horiztonal-line {
-  width: 100%;
-  top: 33%;
-  height: 33%;
-}
-
-.hero-image {
-  background-image: url("../assets/img/package.jpg");
-  background-position: 0% 75%;
+  .hero-image {
+    background-image: url("../assets/img/package.jpg");
+    background-position: 0% 75%;
     background-size: 100% auto;
+  }
 
+  ul > li {
+    text-indent: -1.8rem;
+  }
 
-}
+  ul {
+    margin: 0;
+  }
 
-ul > li {
-  text-indent: -1.8rem;
-}
+  ul.dashed {
+    list-style-type: none;
+  }
 
-ul {
-  margin: 0;
-}
-ul.dashed {
-  list-style-type: none;
-}
+  ul.dashed > li:before {
+    content: "-  ";
+    text-indent: -5px;
+  }
 
-ul.dashed > li:before {
-  content: "-  ";
-  text-indent: -5px;
-}
-
-li span {
-  position: relative;
-  left: 2.5rem;
-}
-
-
+  li span {
+    position: relative;
+    left: 2.5rem;
+  }
 </style>
