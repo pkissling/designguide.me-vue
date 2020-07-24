@@ -149,22 +149,21 @@
               <div class="has-text-centered">
                 <button
                   id="sendMessage"
-                  class="button"
-                  :disabled="this.isSuccess || this.isLoading"
-                  :class="submitButtonClass"
+                  class="button is-primary"
+                  :disabled="this.isSuccess || this.isLoading || this.attachmentsUploadQueue.length != 0"
+                  :class="{ 'is-loading' : this.attachmentsUploadQueue.length != 0 || this.isLoading }"
                   @click.prevent="sendMessage()"
                 >
                   <span class="icon is-small">
-                    <span v-if="this.isSuccess">
-                      <i class="fas fa-check" />
+                    <span v-show="this.isSuccess">
+                      <i class="fas fa-check"/>
                     </span>
-                    <span v-else>
-                      <i class="fas fa-envelope" />
+                    <span v-show="!this.isSuccess">
+                      <i class="far fa-envelope" />
                     </span>
                   </span>
                   <p class="is-uppercase">Erzähl mir von Deinem Projekt!</p>
                 </button>
-                <p v-if="isAttachmentsUploading" class="help is-warning">{{ isAttachmentsUploading }}</p>
               </div>
             </div>
           </div>
@@ -201,15 +200,14 @@ export default {
         purposeDetail: null,
         attachments: [],
         other: null,
-        context: new Date().getTime()
+        context: new Date().getTime(),
       },
 
       attachmentsUploadQueue: [],
 
       validate: {
         name: false,
-        email: false,
-        attachments: false
+        email: false
       },
 
       isLoading: false,
@@ -253,23 +251,23 @@ export default {
       if (!fileList.length) return;
 
       fileList.forEach(file => {
-        this.attachmentsUploadQueue.push(file)
+        this.attachmentsUploadQueue.push(file);
 
-        const fileType = file.type || "undefined"
+        const fileType = file.type || "undefined";
 
         backendClient
           .createAttachmentUploadUrl(file.name, fileType, this.form.context)
           .then(response => s3Client.uploadAttachment(response.data, fileType, file))
           .then(response => {
-            this.attachmentsUploadQueue = this.attachmentsUploadQueue.filter(f => f != file)
-            this.form.attachments.push({ name: file.name, url: response.config.url })
-          })
-      })
+            this.attachmentsUploadQueue = this.attachmentsUploadQueue.filter(f => f != file);
+            this.form.attachments.push({ name: file.name, url: response.config.url });
+          });
+      });
     },
 
     deleteAttachment(deleteFile) {
       this.form.attachments = this.form.attachments.filter(file => file.name != deleteFile.name);
-      this.attachmentsUploadQueue = this.attachmentsUploadQueue.filter(file => file.name != deleteFile.name)
+      this.attachmentsUploadQueue = this.attachmentsUploadQueue.filter(file => file.name != deleteFile.name);
     },
 
     hashFile(file) {
@@ -279,9 +277,8 @@ export default {
     doValidate() {
       this.validate.name = true;
       this.validate.email = true;
-      this.validate.attachments = true;
 
-      if (this.isFormNameInvalid || this.isFormEmailInvalid || this.isAttachmentsUploading) {
+      if (this.isFormNameInvalid ||this.isFormEmailInvalid) {
         VueScrollTo.scrollTo("#form", { offset: -70 });
         return false;
       }
@@ -291,14 +288,6 @@ export default {
   },
 
   computed: {
-    submitButtonClass() {
-      if (this.isLoading) {
-        return "is-loading";
-      }
-
-      return "is-primary";
-    },
-
     isFormNameInvalid() {
       if (!this.validate.name) {
         return null;
@@ -327,18 +316,6 @@ export default {
       return null;
     },
 
-    isAttachmentsUploading() {
-      if (!this.validate.attachments) {
-        return null;
-      }
-
-      if (!this.attachmentsUploadQueue || this.attachmentsUploadQueue.length == 0) {
-        return null;
-      }
-
-      return "Bitte warte bis alle Dokumente hochgeladen wurden.";
-    },
-
     showPurposeDetailField() {
       // TODO
       return false;
@@ -360,15 +337,6 @@ export default {
 .form {
   margin-top: 4rem;
   text-align: left;
-}
-
-.circle {
-  border-radius: 50%;
-  -moz-border-radius: 50%;
-  -webkit-border-radius: 50%;
-  height: 300px;
-  width: 300px;
-  background: lightgrey;
 }
 
 .hero-image {
