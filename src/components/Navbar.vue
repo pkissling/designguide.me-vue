@@ -6,7 +6,7 @@
   >
     <div class="navbar-brand">
       <a class="navbar-item" v-scroll-to="'#hero'">
-        <div class="is-size-4-touch is-size-3-desktop brand">
+        <div class="unselectable is-size-4-touch is-size-3-desktop brand">
           <strong>DESIGN GUIDE</strong>
         </div>
       </a>
@@ -91,5 +91,14 @@ export default {
     opacity: 1;
     max-height: 396px;
   }
+}
+
+.unselectable {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 </style>
