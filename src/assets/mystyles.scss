@@ -1,7 +1,6 @@
 @charset "utf-8";
 
 @import url(https://fonts.googleapis.com/css2?family=Anton&display=swap);
-@import url(https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap);
 
 @font-face {
   font-family: 'Futura LT';
@@ -33,24 +32,9 @@ $warning: red;
   font-size: 11pt;
 }
 
-.hero-body {
-  font-family: 'Amatic SC', cursive;
-  font-size: 42pt;
-  color: black;
-  margin-bottom: 2.5rem;
-}
-
 .title {
   font-size: 18pt !important;
 }
-
-.hero-image {
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-
 
 // Import only what you need from Bulma
 // default
@@ -70,6 +54,3 @@ $warning: red;
 
 // grid
 @import "bulma/sass/grid/_all.sass";
-
-// layout
-@import "bulma/sass/layout/hero.sass";

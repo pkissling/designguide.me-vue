@@ -1,8 +1,8 @@
 <template>
   <div id="package">
-    <section class="hero hero-image">
-      <div class="hero-body">Package</div>
-    </section>
+    <div class="hero">
+      <img class="hero-img" />
+    </div>
 
     <div class="content has-text-left-touch has-text-centered-desktop">
       <h1 class="title">Leistungsumfang</h1>
@@ -83,41 +83,45 @@
 </template>
 
 <style scoped>
-  .box {
-    margin-top: 2rem;
-    margin-bottom: 2rem !important;
-  }
+.box {
+  margin-top: 2rem;
+  margin-bottom: 2rem !important;
+}
 
-  .divider {
-    width: 100%;
-    border-bottom: 1.5px solid;
-  }
+.divider {
+  width: 100%;
+  border-bottom: 1.5px solid;
+}
 
-  .hero-image {
-    background-image: url("../assets/img/package.jpg");
-    background-position: 0% 75%;
-    background-size: 100% auto;
-  }
+ul > li {
+  text-indent: -1.8rem;
+}
 
-  ul > li {
-    text-indent: -1.8rem;
-  }
+ul {
+  margin: 0;
+}
 
-  ul {
-    margin: 0;
-  }
+ul.dashed {
+  list-style-type: none;
+}
 
-  ul.dashed {
-    list-style-type: none;
-  }
+ul.dashed > li:before {
+  content: "-  ";
+  text-indent: -5px;
+}
 
-  ul.dashed > li:before {
-    content: "-  ";
-    text-indent: -5px;
-  }
+li span {
+  position: relative;
+  left: 2.5rem;
+}
 
-  li span {
-    position: relative;
-    left: 2.5rem;
+.hero-img {
+  content: url("../assets/img/package.png");
+}
+
+@media screen and (max-width: 1024px) {
+  .hero-img {
+    content: url("../assets/img/package.png");
   }
+}
 </style>

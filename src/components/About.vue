@@ -1,14 +1,14 @@
 <template>
   <div id="about">
-    <section class="hero hero-image">
-      <div class="hero-body">About</div>
-    </section>
+    <div class="hero">
+      <img class="hero-img" />
+    </div>
 
     <div class="content">
       <h1 class="title">Sandra Zechmeister</h1>
       <h6 class="subtitle is-6">M.A. Interior Architecture</h6>
       <figure class="image">
-        <img class="is-rounded" src="../assets/img/portrait.jpg" />
+        <img class="portrait is-rounded" src="../assets/img/portrait.jpg" />
       </figure>
 
       <i>"Simplicity is the ultimate form of sophistication"</i>
@@ -26,17 +26,18 @@
 </template>
 
 <style scoped>
-img {
+.portrait {
   max-width: 220px;
   height: auto;
 }
 
-.hero-body {
-  color: white;
+.hero-img {
+  content: url("../assets/img/about.png");
 }
 
-.hero-image {
-  background-image: url("../assets/img/about.jpg");
-  background-position: 0% 70%;
+@media screen and (max-width: 1024px) {
+  .hero-img {
+    content: url("../assets/img/about.png");
+  }
 }
 </style>

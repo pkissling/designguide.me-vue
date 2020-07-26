@@ -1,8 +1,8 @@
 <template>
   <div id="contact">
-    <section class="hero hero-image">
-      <div class="hero-body">Work with me!</div>
-    </section>
+    <div class="hero">
+      <img class="hero-img" />
+    </div>
 
     <div class="content has-text-left-touch has-text-centered-desktop">
       <h1 class="title">Erzähl‘ mir von deinem Projekt!</h1>
@@ -339,8 +339,13 @@ export default {
   text-align: left;
 }
 
-.hero-image {
-  background-image: url("../assets/img/contact.jpg");
-  background-position: 0% 50%;
+.hero-img {
+  content: url("../assets/img/contact.png");
+}
+
+@media screen and (max-width: 1024px) {
+  .hero-img {
+    content: url("../assets/img/contact.png");
+  }
 }
 </style>
