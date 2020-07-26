@@ -6,13 +6,13 @@
 
 <style scoped>
 .hero-img {
-  padding-top: 54px;
+  padding-top: 60px;
   content: url("../assets/img/hero.png");
 }
 
 @media screen and (max-width: 1024px) {
   .hero-img {
-    content: url("../assets/img/hero.png");
+    content: url("../assets/img/hero_small.png");
   }
 }
 </style>

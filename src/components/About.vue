@@ -37,7 +37,7 @@
 
 @media screen and (max-width: 1024px) {
   .hero-img {
-    content: url("../assets/img/about.png");
+    content: url("../assets/img/about_small.png");
   }
 }
 </style>

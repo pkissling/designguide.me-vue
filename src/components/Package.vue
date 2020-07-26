@@ -121,7 +121,7 @@ li span {
 
 @media screen and (max-width: 1024px) {
   .hero-img {
-    content: url("../assets/img/package.png");
+    content: url("../assets/img/package_small.png");
   }
 }
 </style>

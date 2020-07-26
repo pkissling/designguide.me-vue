@@ -345,7 +345,7 @@ export default {
 
 @media screen and (max-width: 1024px) {
   .hero-img {
-    content: url("../assets/img/contact.png");
+    content: url("../assets/img/contact_small.png");
   }
 }
 </style>
