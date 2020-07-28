@@ -1,7 +1,12 @@
 <template>
   <div id="about">
     <div class="hero">
-      <img class="hero-img" />
+      <div class="is-hidden-touch">
+        <img class="hero-img" src="../assets/img/about.png" />
+      </div>
+      <div class="is-hidden-desktop">
+        <img class="hero-img" src="../assets/img/about_small.png" />
+      </div>
     </div>
 
     <div class="content">
@@ -11,7 +16,8 @@
         <img class="portrait is-rounded" src="../assets/img/portrait.jpg" />
       </figure>
 
-      <i>"Simplicity is the ultimate form of sophistication"</i>
+      <i>"Simplicity is the ultimate form of sophistication."</i>
+
 
       <br />
       <br />
@@ -32,12 +38,6 @@
 }
 
 .hero-img {
-  content: url("../assets/img/about.png");
-}
-
-@media screen and (max-width: 1024px) {
-  .hero-img {
-    content: url("../assets/img/about_small.png");
-  }
+  width: 100%;
 }
 </style>

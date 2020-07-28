@@ -1,7 +1,12 @@
 <template>
   <div id="contact">
     <div class="hero">
-      <img class="hero-img" />
+      <div class="is-hidden-touch">
+        <img class="hero-img" src="../assets/img/contact.png" />
+      </div>
+      <div class="is-hidden-desktop">
+        <img class="hero-img" src="../assets/img/contact_small.png" />
+      </div>
     </div>
 
     <div class="content has-text-left-touch has-text-centered-desktop">
@@ -340,12 +345,6 @@ export default {
 }
 
 .hero-img {
-  content: url("../assets/img/contact.png");
-}
-
-@media screen and (max-width: 1024px) {
-  .hero-img {
-    content: url("../assets/img/contact_small.png");
-  }
+  width: 100%;
 }
 </style>

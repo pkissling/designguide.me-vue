@@ -1,18 +1,20 @@
 <template>
-  <div class="hero">
-    <img class="hero-img" />
+  <div id="hero">
+    <div class="is-hidden-touch">
+      <img class="hero-img" src="../assets/img/hero.png" />
+    </div>
+    <div class="is-hidden-desktop">
+      <img class="hero-img" src="../assets/img/hero_small.png" />
+    </div>
   </div>
 </template>
 
 <style scoped>
 .hero-img {
-  padding-top: 60px;
-  content: url("../assets/img/hero.png");
+  width: 100%
 }
 
-@media screen and (max-width: 1024px) {
-  .hero-img {
-    content: url("../assets/img/hero_small.png");
-  }
+#hero {
+  padding-top: 3.5rem;
 }
 </style>
