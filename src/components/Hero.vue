@@ -1,20 +1,33 @@
 <template>
   <div id="hero" class="hero-img">
 
-    <!-- vue-concise-slider -->
-    <slider ref="slider" :options="options">
-      <slideritem>
-        <img class="hero-img" :src='require("../assets/img/banner1.png")'/>
-      </slideritem>
-      <slideritem>
-        <img class="hero-img" loading="lazy" :src='require("../assets/img/banner2.png")'/>
-      </slideritem>
-      <slideritem>
-        <img class="hero-img" loading="lazy" :src='require("../assets/img/banner3.png")'/>
-      </slideritem>
-    </slider>
+
+       <slider class="is-hidden-touch" ref="slider" :options="options">
+        <slideritem>
+          <img class="hero-img" loading="lazy" :src='require("../assets/img/banner1.png")'/>
+        </slideritem>
+        <slideritem>
+          <img class="hero-img" loading="lazy" :src='require("../assets/img/banner2.png")'/>
+        </slideritem>
+        <slideritem>
+          <img class="hero-img" loading="lazy" :src='require("../assets/img/banner3.png")'/>
+        </slideritem>
+      </slider>
+
+        <slider class="is-hidden-desktop" ref="slider" :options="options">
+          <slideritem>
+            <img class="hero-img" loading="lazy" :src='require("../assets/img/banner1_small.png")'/>
+          </slideritem>
+          <slideritem>
+            <img class="hero-img" loading="lazy" :src='require("../assets/img/banner2_small.png")'/>
+          </slideritem>
+          <slideritem>
+            <img class="hero-img" loading="lazy" :src='require("../assets/img/banner3_small.png")'/>
+          </slideritem>
+        </slider>
 
   </div>
+
 </template>
 
 <script>
@@ -44,6 +57,6 @@ export default {
 }
 
 #hero {
-  padding-top: 3.5rem;
+  padding-top: 3.7rem;
 }
 </style>
