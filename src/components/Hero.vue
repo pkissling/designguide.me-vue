@@ -4,7 +4,7 @@
     <!-- vue-concise-slider -->
     <slider ref="slider" :options="options">
       <slideritem>
-        <img class="hero-img" loading="lazy" :src='require("../assets/img/banner1.png")'/>
+        <img class="hero-img" :src='require("../assets/img/banner1.png")'/>
       </slideritem>
       <slideritem>
         <img class="hero-img" loading="lazy" :src='require("../assets/img/banner2.png")'/>
