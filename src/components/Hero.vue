@@ -12,6 +12,9 @@
         <slideritem>
           <img class="hero-img" loading="lazy" :src='require("../assets/img/banner3.png")'/>
         </slideritem>
+        <slideritem>
+          <img class="hero-img" loading="lazy" :src='require("../assets/img/banner4.png")'/>
+        </slideritem>
       </slider>
 
         <slider class="is-hidden-desktop" ref="slider" :options="options">
@@ -23,6 +26,9 @@
           </slideritem>
           <slideritem>
             <img class="hero-img" loading="lazy" :src='require("../assets/img/banner3_small.png")'/>
+          </slideritem>
+          <slideritem>
+            <img class="hero-img" loading="lazy" :src='require("../assets/img/banner4_small.png")'/>
           </slideritem>
         </slider>
 
@@ -42,7 +48,7 @@ export default {
   data: () => {
     return {
       options: {
-        autoplay: 3000, // next after 3 sec
+        autoplay: 5000, // next after 5 sec
         speed: 1000, // 1 sec transition
         loop: true,
         pagination: false
