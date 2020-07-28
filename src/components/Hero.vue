@@ -58,5 +58,6 @@ export default {
 
 #hero {
   padding-top: 3.7rem;
+  margin-bottom: 2rem !important;
 }
 </style>
