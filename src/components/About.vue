@@ -2,10 +2,10 @@
   <div id="about">
     <div class="hero">
       <div class="is-hidden-touch">
-        <img class="hero-img" src="../assets/img/about.png" />
+        <img class="hero-img" loading="lazy" src="../assets/img/about.png" />
       </div>
       <div class="is-hidden-desktop">
-        <img class="hero-img" src="../assets/img/about_small.png" />
+        <img class="hero-img" loading="lazy" src="../assets/img/about_small.png" />
       </div>
     </div>
 
@@ -13,7 +13,7 @@
       <h1 class="title">Sandra Zechmeister</h1>
       <h6 class="subtitle is-6">M.A. Interior Architecture</h6>
       <figure class="image">
-        <img class="portrait is-rounded" src="../assets/img/portrait.jpg" />
+        <img class="portrait is-rounded" loading="lazy" src="../assets/img/portrait.jpg" />
       </figure>
 
       <i>"Simplicity is the ultimate form of sophistication."</i>

@@ -1,10 +1,10 @@
 <template>
   <div id="hero">
     <div class="is-hidden-touch">
-      <img class="hero-img" src="../assets/img/hero.png" />
+      <img class="hero-img" loading="lazy" src="../assets/img/hero.png" />
     </div>
     <div class="is-hidden-desktop">
-      <img class="hero-img" src="../assets/img/hero_small.png" />
+      <img class="hero-img" loading="lazy" src="../assets/img/hero_small.png" />
     </div>
   </div>
 </template>

@@ -2,10 +2,10 @@
   <div id="contact">
     <div class="hero">
       <div class="is-hidden-touch">
-        <img class="hero-img" src="../assets/img/contact.png" />
+        <img class="hero-img" loading="lazy" src="../assets/img/contact.png" />
       </div>
       <div class="is-hidden-desktop">
-        <img class="hero-img" src="../assets/img/contact_small.png" />
+        <img class="hero-img" loading="lazy" src="../assets/img/contact_small.png" />
       </div>
     </div>
 
